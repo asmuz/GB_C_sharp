@@ -4,6 +4,7 @@
 */
 
 int ExponentOfNumber(int number, int exponent){
+    if(exponent < 0) exponent = exponent * -1;
     int result = 1;
     for (int i = 0; i < exponent; i++) {
         result = result * number;
