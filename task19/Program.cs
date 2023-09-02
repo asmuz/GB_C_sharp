@@ -15,23 +15,27 @@ int reverseNumber = 0;
 // создаем "множитель" для дальнейшего "разворота числа"
 int countNumber = inputNumber;//делаем копию исходного числа, для получения разрядности
 int multiplier = 1;//множитель
-while (countNumber > 0) {
+while (countNumber > 0)
+{
     multiplier *= 10;
     countNumber /= 10;
 }
 multiplier /= 10;//корректировка итогового множителя (нужно на 1 разряд мемньше)
-    
-while (number > 0) {
+
+while (number > 0)
+{
     int lastNumber = number % 10;
     reverseNumber += lastNumber * multiplier;
     number /= 10;
     multiplier /= 10;
 }
 
-if (reverseNumber == inputNumber) {
+if (reverseNumber == inputNumber)
+{
     Console.WriteLine("Круто! " + inputNumber + " это число ПОЛИНДРОМ!");
 }
 
-else {
+else
+{
     Console.WriteLine("Число " + inputNumber + " и его развёрнутая версия " + reverseNumber + " отличаются");
 }

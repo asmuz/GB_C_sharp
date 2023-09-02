@@ -8,12 +8,13 @@ Console.Clear();
 
 Console.WriteLine("Введите число N: ");
 int n = Convert.ToInt32(Console.ReadLine());
-if (n < 0) n *=-1;
+if (n < 0) n *= -1;
 
 Console.Clear();
 Console.Write(n + " -> ");
 
 int result = 0;
-for (int i = 1; i <= n; i++) {
+for (int i = 1; i <= n; i++)
+{
     Console.Write(Math.Pow(i, 3) + " ");
-    }
+}

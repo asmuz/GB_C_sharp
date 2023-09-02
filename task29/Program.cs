@@ -3,19 +3,23 @@
 6, 1, 33 -> [6, 1, 33]
 */
 
-int[] GetArray(int length, int min, int max) {
+int[] GetArray(int length, int min, int max)
+{
     int[] array = new int[length];
-    for (int i = 0; i < length; i++) {
+    for (int i = 0; i < length; i++)
+    {
         array[i] = new Random().Next(min, max);
     }
     return array;
 }
 
-void PrintArray(int[] array) {
+void PrintArray(int[] array)
+{
     Console.Write("[");
-    for (int i = 0; i < array.Length; i++) {
+    for (int i = 0; i < array.Length; i++)
+    {
         Console.Write(array[i]);
-        if(i < array.Length - 1) Console.Write(", ");
+        if (i < array.Length - 1) Console.Write(", ");
     }
     Console.Write("]");
 }

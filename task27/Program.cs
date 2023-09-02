@@ -4,9 +4,11 @@
 9012 -> 12
 */
 
-int SumOfDigits(int number){
+int SumOfDigits(int number)
+{
     int result = 0;
-    while(number > 0){
+    while (number > 0)
+    {
         result += number % 10;
         number /= 10;
     }
