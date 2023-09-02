@@ -9,7 +9,6 @@ double[] GetDoubleArray(int length, int min, int max)
     double[] array = new double[length];
     for (int i = 0; i < length; i++)
     {
-        //array[i] = new Random().NextDouble(min, max);
         array[i] = Math.Round((new Random().NextDouble() * (max - min) + min), 2);
     }
     return array;
