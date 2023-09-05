@@ -34,6 +34,7 @@ void Print2DArray(int[,] arrayToPrint)
     }
 }
 
+/*
 int[,] DoubleEven2DArray(int[,] array)
 {
     int rows = array.GetLength(0);
@@ -48,6 +49,21 @@ int[,] DoubleEven2DArray(int[,] array)
         }
     }
     return result;
+}
+*/
+
+int[,] DoubleEven2DArray(int[,] array)
+{
+    int rows = array.GetLength(0);
+    int cols = array.GetLength(1);
+    for (int i = 0; i < rows; i = i + 2)
+    {
+        for (int j = 0; j < cols; j = j + 2)
+        {
+            array[i, j] = array[i, j] * array[i, j];
+        }
+    }
+    return array;
 }
 
 int[,] arr = Get2DArray(5, 5, 10);
