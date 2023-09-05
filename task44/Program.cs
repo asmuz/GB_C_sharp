@@ -29,10 +29,6 @@ void PrintArray(int[] array )
     }
     Console.Write("]");
 }
-for (int i = 0; i < length; i++)
-{
-    int a = 
-}
 
 Console.Write("Введите число: ");
 int n = Convert.ToInt32(Console.ReadLine());

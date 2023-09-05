@@ -2,12 +2,12 @@
 
 Console.Clear();
 
-int[,] Get2DArray(int cols, int rows, int deviation)
+int[,] Get2DArray(int row, int col, int deviation)
 {
-    int[,] array = new int[cols, rows];
-    for (int i = 0; i < rows; i++)
+    int[,] array = new int[row, col];
+    for (int i = 0; i < row; i++)
     {
-        for (int j = 0; j < cols; j++)
+        for (int j = 0; j < col; j++)
         {
             array[i, j] = new Random().Next(-deviation, deviation);
         }
