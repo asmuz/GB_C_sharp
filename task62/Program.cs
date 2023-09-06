@@ -14,19 +14,18 @@ Print2DArray(array);
 int[,] Spiral(int rows, int cols)
 {
     int[,] array = new int[rows, cols];
-    int end = rows * cols;  // до какого числа заполняем спираль
-    int count = 1;          // начальное значение спирали
-    int right = cols - 1;   // правая граница
-    int bottom = rows - 1;  // нижняя граница
-    int left = 0;           // левая граница
-    int top = 1;            // верхняя граница
-    int direction = 1;      // начальное направление спирали (1 - вправо, 2 - вниз, 3 - влево, 4 - вверх)
-    int y = 0;              // начальные координаты спирали
+    int end = rows * cols;                          // до какого числа заполняем спираль
+    int right = cols - 1;                           // правая граница
+    int bottom = rows - 1;                          // нижняя граница
+    int left = 0;                                   // левая граница
+    int top = 1;                                    // верхняя граница
+    int direction = 1;                              // начальное направление спирали (1 - вправо, 2 - вниз, 3 - влево, 4 - вверх)
+    int y = 0;                                      // начальные координаты спирали
     int x = 0;
 
-    while (count <= end)
+    for (int i = 1; i <= end; i++)
     {
-        array[y, x] = count;                        // заполняем ячейку
+        array[y, x] = i;                            // заполняем ячейку
 
         if (direction == 1 && x < right) x++;       // идём право, пока не упрёмся в границу
         else if (direction == 1 && x == right)      // если упёрлись в правую границу
@@ -50,21 +49,20 @@ int[,] Spiral(int rows, int cols)
         else if (direction == 4 && y == top)        // если упёрлись в верхнюю границу
         {
             direction = 1;                          // меняем направление вправо
-            top++;                                  // и сдвигаем верхнюю границу,
-            x++;                                    // а так же текущую позицию
+            top++;                                  // сдвигаем верхнюю границу
+            x++;                                    // и текущую позицию
         }
-        count++;                                    // увелививаем счетчик
     }
     return array;
 }
 
-void Print2DArray(int[,] arrayToPrint)
+void Print2DArray(int[,] array)
 {
-    for (int i = 0; i < arrayToPrint.GetLength(0); i++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        for (int j = 0; j < arrayToPrint.GetLength(1); j++)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-            System.Console.Write(arrayToPrint[i, j] + "\t");
+            System.Console.Write(array[i, j] + "\t");
         }
         System.Console.WriteLine();
     }
