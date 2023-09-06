@@ -8,12 +8,13 @@ int rows = Convert.ToInt32(Console.ReadLine());
 System.Console.Write("Ширина массива:");
 int cols = Convert.ToInt32(Console.ReadLine());
 
+Console.Clear();
+
 int[,] array = Spiral(rows, cols);
-Print2DArray(array);
 
 int[,] Spiral(int rows, int cols)
 {
-    int[,] array = new int[rows, cols];
+    int[,] array = new int[rows, cols];             // создаем пустой массив заданного размера
     int end = rows * cols;                          // до какого числа заполняем спираль
     int right = cols - 1;                           // правая граница
     int bottom = rows - 1;                          // нижняя граница
@@ -22,10 +23,13 @@ int[,] Spiral(int rows, int cols)
     int direction = 1;                              // начальное направление спирали (1 - вправо, 2 - вниз, 3 - влево, 4 - вверх)
     int y = 0;                                      // начальные координаты спирали
     int x = 0;
+    int pause = 500;                                // велечина паузы (мс)
 
     for (int i = 1; i <= end; i++)
     {
         array[y, x] = i;                            // заполняем ячейку
+        PrintCurrent(array, y, x);                  // отрисовываем текущее состояние массива
+        Thread.Sleep(pause);                        // задержка перед следующей итерацией
 
         if (direction == 1 && x < right) x++;       // идём право, пока не упрёмся в границу
         else if (direction == 1 && x == right)      // если упёрлись в правую границу
@@ -56,13 +60,32 @@ int[,] Spiral(int rows, int cols)
     return array;
 }
 
-void Print2DArray(int[,] array)
+void PrintCurrent(int[,] array, int y, int x)                   // передаем массив и координаты текущего значения
 {
+    Console.SetCursorPosition(0, 0);                            // ставим курсор в начальную позицию
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            System.Console.Write(array[i, j] + "\t");
+            if (j == x && i == y)                               // рисуем текущую позицию красным цветом
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                System.Console.Write(array[i, j] + "\t");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else if (array[i, j] != 0)                          // уже отрисованные позиции желтым
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                System.Console.Write(array[i, j] + "\t");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            else                                                // пустые (нулевые) черным
+            {
+                Console.ForegroundColor = ConsoleColor.Black;
+                System.Console.Write(array[i, j] + "\t");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+
         }
         System.Console.WriteLine();
     }
