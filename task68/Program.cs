@@ -16,4 +16,5 @@ int m = Convert.ToInt32(Console.ReadLine());
 Console.Write("Значение N: ");
 int n = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine(A(m, n));
+if (m >= 0 && n >= 0) Console.WriteLine(A(m, n));
+else Console.WriteLine("Введите ПОЛОЖИТЕЛЬНЫЕ значения!");
